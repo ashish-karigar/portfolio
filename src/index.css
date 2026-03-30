@@ -1,0 +1,71 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-accent-light: #4f46e5;
+  /* --color-accent-dark: #67e8f9; */
+  --color-accent-dark: #4f46e5;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px) translateX(0px);
+  }
+  50% {
+    transform: translateY(-18px) translateX(10px);
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+  background: white;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(99, 102, 241, 0.55) white;
+}
+
+html.dark {
+  background: rgb(9 9 11);
+  scrollbar-color: rgba(103, 232, 249, 0.55) rgb(9 9 11);
+}
+
+body {
+  background: transparent;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: white;
+}
+
+html.dark ::-webkit-scrollbar-track {
+  background: rgb(9 9 11);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(99, 102, 241, 0.45);
+  border-radius: 9999px;
+  border: 2px solid white;
+  background-clip: padding-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(99, 102, 241, 0.7);
+  border: 2px solid white;
+  background-clip: padding-box;
+}
+
+html.dark ::-webkit-scrollbar-thumb {
+  background: rgba(103, 232, 249, 0.38);
+  border-radius: 9999px;
+  border: 2px solid rgb(9 9 11);
+  background-clip: padding-box;
+}
+
+html.dark ::-webkit-scrollbar-thumb:hover {
+  background: rgba(103, 232, 249, 0.58);
+  border: 2px solid rgb(9 9 11);
+  background-clip: padding-box;
+}
