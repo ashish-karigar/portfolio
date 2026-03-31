@@ -3,6 +3,7 @@ import About from '../components/About'
 import Projects from '../components/Projects'
 import Contact from '../components/Contact'
 import Toolkit from '../components/Toolkit'
+import FooterRoad from '../components/FooterRoad'
 
 function Home({ theme }) {
   return (
@@ -11,7 +12,7 @@ function Home({ theme }) {
       <About />
       <Toolkit />
       <Projects />
-      <Contact />
+      <Contact theme={theme}/>
     </>
   )
 }

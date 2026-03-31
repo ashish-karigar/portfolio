@@ -1,61 +1,39 @@
-function SunIcon() {
-    return (
-      <svg
-        className="h-4 w-4"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        aria-hidden="true"
-      >
-        <circle cx="12" cy="12" r="4" />
-        <path d="M12 2v2" />
-        <path d="M12 20v2" />
-        <path d="m4.93 4.93 1.41 1.41" />
-        <path d="m17.66 17.66 1.41 1.41" />
-        <path d="M2 12h2" />
-        <path d="M20 12h2" />
-        <path d="m6.34 17.66-1.41 1.41" />
-        <path d="m19.07 4.93-1.41 1.41" />
-      </svg>
-    )
+import { useState } from 'react'
+import logoVideo from '../assets/me.MOV'
+
+function Navbar({ theme, setTheme }) {
+  const isDark = theme === 'dark'
+  const [isPulling, setIsPulling] = useState(false)
+
+  const toggleTheme = () => {
+    setIsPulling(true)
+    setTheme(isDark ? 'light' : 'dark')
+
+    setTimeout(() => {
+      setIsPulling(false)
+    }, 180)
   }
   
-  function MoonIcon() {
     return (
-      <svg
-        className="h-4 w-4"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        aria-hidden="true"
-      >
-        <path d="M21 12.79A9 9 0 1 1 11.21 3c0 0-1.21 5.79 2.29 9.29S21 12.79 21 12.79z" />
-      </svg>
-    )
-  }
+      <header className="sticky top-0 z-50 w-full overflow-visible border-b border-zinc-200/70 bg-white/65 backdrop-blur-xl dark:border-zinc-800/70 dark:bg-zinc-950/65">
+        <div className="mx-auto flex max-w-6xl items-start justify-between px-6 py-5">
+        <a
+  href="#"
+  className="relative flex h-6 items-center text-sm font-semibold uppercase tracking-[0.18em]"
+>
+  <video
+    src={logoVideo}
+    autoPlay
+    loop
+    muted
+    playsInline
+    className="absolute left-0 top-1/2 h-16 w-16 -translate-y-[45%] object-contain"
+  />
+  <span className="pl-[60px] leading-none">Ashish Karigar</span>
+</a>
   
-  function Navbar({ theme, setTheme }) {
-    const isDark = theme === 'dark'
-  
-    const toggleTheme = () => {
-      setTheme(isDark ? 'light' : 'dark')
-    }
-  
-    return (
-      <header className="sticky top-0 z-50 w-full border-b border-zinc-200/70 bg-white/65 backdrop-blur-xl dark:border-zinc-800/70 dark:bg-zinc-950/65">
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-5">
-          <a href="#" className="text-sm font-semibold tracking-[0.18em] uppercase">
-            Ashish Karigar
-          </a>
-  
-          <div className="flex items-center gap-6">
-            <nav className="hidden gap-6 text-sm text-zinc-600 dark:text-zinc-300 md:flex">
+          <div className="flex items-start gap-6">
+            <nav className="hidden gap-6 pt-1 text-sm text-zinc-600 dark:text-zinc-300 md:flex">
               <a href="#about" className="transition hover:text-black dark:hover:text-white">
                 About
               </a>
@@ -71,25 +49,33 @@ function SunIcon() {
             </nav>
   
             <button
-              onClick={toggleTheme}
-              aria-label="Toggle theme"
-              aria-pressed={isDark}
-              className="relative inline-flex h-10 w-20 items-center rounded-full border border-zinc-300 bg-zinc-100 px-1 transition-all duration-300 dark:border-zinc-700 dark:bg-zinc-900"
-            >
-              <span
-                className={`absolute flex h-8 w-8 items-center justify-center rounded-full shadow-sm transition-all duration-300 ${
-                  isDark
-                    ? 'translate-x-10 bg-zinc-800 text-zinc-100'
-                    : 'translate-x-0 bg-white text-amber-500'
-                }`}
-              >
-                {isDark ? <MoonIcon /> : <SunIcon />}
-              </span>
-  
-              <span className="flex w-full items-center justify-between px-2 text-xs font-medium text-zinc-500 dark:text-zinc-400">
-                <span>☀</span>
-                <span>☾</span>
-              </span>
+                onClick={toggleTheme}
+                aria-label="Toggle theme"
+                aria-pressed={isDark}
+                className="group relative -mb-10 flex w-8 flex-col items-center overflow-visible"
+                >
+                    <span
+                        className={`w-px bg-zinc-400 transition-all duration-150 dark:bg-zinc-600 ${
+                        isPulling ? 'h-12' : 'h-10'
+                        }`}
+                    />
+
+                    <span
+                        className={`relative mt-1 flex h-6 w-6 items-center justify-center rounded-full border transition-all duration-150 ${
+                        isPulling ? 'translate-y-2' : 'translate-y-0'
+                        } ${
+                        isDark
+                            ? 'border-zinc-500 bg-zinc-800 text-zinc-300'
+                            : 'border-amber-300 bg-amber-100 text-amber-500 shadow-[0_0_20px_rgba(251,191,36,0.45)]'
+                        }`}
+                    >
+                        <span className="absolute -top-1.5 h-1.5 w-2 rounded-t-full border border-b-0 border-current opacity-70" />
+                        <span className="-mt-[1px] flex h-3.5 w-3.5 items-center justify-center rounded-full bg-current opacity-90">
+                        <span className={isDark ? 'text-[10px] text-zinc-900' : 'text-[10px] text-white'}>
+                            {isDark ? '☾' : '☀'}
+                        </span>
+                    </span>
+                </span>
             </button>
           </div>
         </div>

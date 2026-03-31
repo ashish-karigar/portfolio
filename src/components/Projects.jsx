@@ -1,27 +1,48 @@
 function Projects() {
     const projects = [
-      {
-        title: 'VitalSphere',
-        description:
-          'A dual-portal health platform designed for patient and provider workflows, with consent handling and predictive analytics features.',
-        tech: ['Flutter', 'Angular', 'Flask', 'Supabase', 'PostgreSQL'],
-        linkLabel: 'View Project',
-      },
-      {
-        title: 'Rodent Behaviour Analysis',
-        description:
-          'A computer vision pipeline for analyzing T-maze rodent videos using zone detection, pose tracking, segmentation, and behavioral metrics.',
-        tech: ['Python', 'OpenCV', 'YOLO', 'DeepLabCut', 'Pandas'],
-        linkLabel: 'View Project',
-      },
-      {
-        title: 'MyLens External Camera App',
-        description:
-          'A mobile application for connecting to and recording from an external USB-C camera with native Android integration.',
-        tech: ['Flutter', 'Android', 'Kotlin', 'USB-C', 'Camera Integration'],
-        linkLabel: 'View Project',
-      },
-    ]
+        {
+          title: 'VitalSphere',
+          description:
+            'A dual-portal health platform designed for patient and provider workflows, with consent handling and predictive analytics features.',
+          tech: ['Flutter', 'Angular', 'Flask', 'Supabase', 'PostgreSQL'],
+          linkLabel: 'View Project',
+        },
+        {
+          title: 'Rodent Behaviour Analysis',
+          description:
+            'A computer vision pipeline for analyzing T-maze rodent videos using zone detection, pose tracking, segmentation, and behavioral metrics.',
+          tech: ['Python', 'OpenCV', 'YOLO', 'DeepLabCut', 'Pandas'],
+          linkLabel: 'View Project',
+        },
+        {
+          title: 'MyLens External Camera App',
+          description:
+            'A mobile application for connecting to and recording from an external USB-C camera with native Android integration.',
+          tech: ['Flutter', 'Android', 'Kotlin', 'USB-C', 'Camera Integration'],
+          linkLabel: 'View Project',
+        },
+        {
+          title: 'MarkTech Uplink',
+          description:
+            'A marketing-focused platform built to streamline communication, workflow visibility, and connected digital operations across teams.',
+          tech: ['React', 'Flask', 'SQL', 'REST APIs'],
+          linkLabel: 'View Project',
+        },
+        {
+          title: 'CamComposite',
+          description:
+            'A desktop application for combining multiple camera feeds into polished layouts and routing them into virtual camera workflows.',
+          tech: ['Python', 'OpenCV', 'Tkinter', 'OBS', 'Virtual Camera'],
+          linkLabel: 'View Project',
+        },
+        {
+            title: 'IRIS',
+            description:
+              'A desktop application for combining multiple camera feeds into polished layouts and routing them into virtual camera workflows.',
+            tech: ['Python', 'OpenCV', 'Tkinter', 'OBS', 'Virtual Camera'],
+            linkLabel: 'View Project',
+          },
+      ]
   
     return (
       <section id="projects" className="mx-auto max-w-6xl px-6 py-24">
